@@ -5,22 +5,25 @@ import { addAdminDto } from './DTO/AddAdminDto';
 
 @Controller('admin')
 export class AdminsController {
-  constructor(private AdminService: AdminsService) {}
+  constructor(private AdminService: AdminsService) { }
   @Get()
- async getAllAdmin() : Promise<Admin[]>{
-    return  await this.AdminService.getAdmin();
+  async getAllAdmin(): Promise<Admin[]> {
+    return await this.AdminService.getAdmin();
   }
-  @Post ()
+  @Post()
   async addAdmin(
-@Body() addAdminDto:addAdminDto):Promise<Admin>{
-  return await this.AdminService.addAdmin(addAdminDto);}
-@Patch ()
-
-@Delete(':id')
-async removeAdmin(
-  @Param('id' , ParseIntPipe) id:number
-){
-  return await this.AdminService.removeAdmin(id);
-}
+    @Body() addAdminDto: addAdminDto): Promise<Admin> {
+    return await this.AdminService.addAdmin(addAdminDto);
+  }
+  @Post('login')
+  async login(@Body() addAdminDto:addAdminDto){
+    return await this.AdminService.login(addAdminDto);
+  }
+  @Delete(':id')
+  async removeAdmin(
+    @Param('id', ParseIntPipe) id: number
+  ) {
+    return await this.AdminService.removeAdmin(id);
+  }
 
 }

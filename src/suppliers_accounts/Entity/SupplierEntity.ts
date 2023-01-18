@@ -12,8 +12,5 @@ export class Supplier {
   Role:String;
     @Column()
     Password: String;
-    @ManyToOne(
-      type =>Account ,
-      (Account) => Account.suppliers)
-      account:Account
+    
 }

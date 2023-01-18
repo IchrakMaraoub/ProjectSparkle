@@ -16,5 +16,8 @@ async removeRev(
 ){
   return await this.ReviewService.removeRev(id);
 }
-
+@Get()
+ async getAllReviews() : Promise<Review[]>{
+    return  await this.ReviewService.getReview();
+  }
 }

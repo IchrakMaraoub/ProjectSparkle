@@ -1,6 +1,7 @@
 
 import { Account } from "../../accounts/Entity/AccountEntity";
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Order } from "../../orders/Entity/OrdersEntity";
 
 @Entity('product')
 export class Product {
@@ -12,10 +13,7 @@ export class Product {
     party_type:String;
     @Column()
     cost:Number;
-    @ManyToMany(
-        type => Account,
-        (Account) =>Account.products,
-        )
-        accounts:Account[];
+    @OneToMany(()=>Order ,(order:Order)=>order.product)
+    orders: Order[];
       
 }

@@ -12,7 +12,9 @@ export class ReviewsService {
         @InjectRepository(Review)
     private ReviewRepository: Repository<Review>,
   ){}
-
+  async getReviews(): Promise<Review[]> {
+    return await this.ReviewRepository.find();
+  }
   async addReview(Review:addReviewDto) : Promise<Review>{
     return this.ReviewRepository.save(Review);
   }

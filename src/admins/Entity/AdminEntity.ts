@@ -8,6 +8,8 @@ export class Admin {
     @Column()
     UserName: string;
     @Column()
-    Password: String;
+    Password: string;
+    @Column()
+    salt: string; 
   
 }

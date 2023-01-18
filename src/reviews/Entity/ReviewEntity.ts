@@ -8,8 +8,5 @@ export class Review {
   
   @Column()
     text: String;
-    @ManyToOne(
-      type =>Account ,
-      (Account) => Account.reviews)
-      account:Account
+   
     }

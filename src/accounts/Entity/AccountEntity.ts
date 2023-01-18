@@ -2,6 +2,7 @@ import { Product } from "../../products/Entity/ProductsEntity";
 import { Review } from "../../reviews/Entity/ReviewEntity";
 import { Supplier } from "../../suppliers_accounts/Entity/SupplierEntity";
 import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Order } from "../../orders/Entity/OrdersEntity";
 
 @Entity('account')
 export class Account {
@@ -16,18 +17,7 @@ export class Account {
  
     @Column()
     Password: String;
-    @OneToMany(
-        type =>Supplier ,
-        (Supplier) => Supplier.account,)
-        suppliers:Supplier[];
-        @OneToMany(
-            type =>Review ,
-            (Review) => Review.account,)
-            reviews:Review[];
-            @ManyToMany(
-                type => Product,
-                (Product) =>Product.accounts,
-                )
-                products:Product[];
-              
+    @OneToMany(()=>Order ,(order:Order)=>order.account)
+    orders: Order[];
+
 }
