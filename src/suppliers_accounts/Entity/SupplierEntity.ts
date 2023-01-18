@@ -1,5 +1,5 @@
 import { Account } from "../../accounts/Entity/AccountEntity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('supplier')
 export class Supplier {
@@ -12,8 +12,8 @@ export class Supplier {
   Role:String;
     @Column()
     Password: String;
-    @ManyToOne(
+    @OneToOne(
       type =>Account ,
-      (Account) => Account.suppliers)
+      (Account) => Account.supplier)
       account:Account
 }

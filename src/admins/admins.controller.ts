@@ -14,13 +14,12 @@ export class AdminsController {
   async addAdmin(
 @Body() addAdminDto:addAdminDto):Promise<Admin>{
   return await this.AdminService.addAdmin(addAdminDto);}
-@Patch ()
-
 @Delete(':id')
 async removeAdmin(
   @Param('id' , ParseIntPipe) id:number
 ){
   return await this.AdminService.removeAdmin(id);
 }
+
 
 }

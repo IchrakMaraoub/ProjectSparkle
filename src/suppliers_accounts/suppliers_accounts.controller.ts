@@ -19,7 +19,7 @@ export class SuppliersAccountsController {
 @Body() addSupplierDto:addSupplierDto):Promise<Supplier>{
   
 return await this.SupplierService.addSupplier(addSupplierDto)}
-@Patch ()
+@Patch (':id')
 async updateSupplier(
 @Body() UpdateSupplierDto:UpdateSupplierDto,
 @Param('id') id:number):Promise<Supplier>{
